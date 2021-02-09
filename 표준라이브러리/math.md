@@ -25,4 +25,19 @@
       #42
       ~~~
 
+  - **제곱근(sqrt)** 
+  
+    - 소수 인지 판별할 때 사용
+  
+    - ~~~python
+      import math
       
+      def is_prime_number(x) :
+        for i in range(2, int(math.sqrt(x))+1) :
+          if x%i==0 :
+            return False
+        return True
+      ~~~
+  
+    
+
