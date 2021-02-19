@@ -15,6 +15,10 @@
       #3
       #0
       #{'red': 2, 'blue': 3, 'greed': 1}
+      
+      modes = counter.most_common()
+      print(modes)
+      #[('blue', 3), ('red', 2), ('greed', 1)]
       ~~~
 
       
