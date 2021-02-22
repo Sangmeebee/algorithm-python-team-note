@@ -87,9 +87,41 @@ print(d[99])
         dp[i] = max(dp[j]+1, dp[i])
   ~~~
 
+
+
+
+##  최장 공통 부분 수열(LCS)
+
+- 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제
+
+- ACAYKP와 CAPCAK의 LCS는 ACAK
+
+- ```
+  만약, 비교하는 위치의 문자가 서로 같으면 
+      현재 위치의 값 = 왼쪽 대각선 값 + 1  (배열 범위를 벗어났으면 0이라고 가정 )
+  다르다면  
+      현재 위치의 값 = MAX{왼쪽 값, 위쪽 값}   
+  ```
+
+- ~~~python
+  a = list(input())
+  b = list(input())
+  alen = len(a)
+  blen = len(b)
+  dp = [[0] * (alen + 1) for _ in range(blen + 1)]
   
-
-
+  for i in range(1, blen + 1):
+      for j in range(1, alen + 1):
+        	# 같은 글자면 왼쪽 대각선 값 +1
+          if a[j - 1] == b[i - 1]:
+              dp[i][j] = dp[i - 1][j - 1] + 1
+          # 다른 글자면, 위와 왼쪽 중 큰 값을 가져온다.
+          else:
+              dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+  
+  print(dp[blen][alen])
+  
+  ~~~
 
 ## Tip
 
